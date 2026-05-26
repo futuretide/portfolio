@@ -175,7 +175,7 @@ body.dark .cert-badge-sub{color:#d97706;}
 
 /* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.5rem;margin-top:3rem;}
-.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.2s;cursor:pointer;position:relative;overflow:clip;touch-action:pan-y;-webkit-tap-highlight-color:transparent;}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.2s;cursor:pointer;position:relative;overflow:clip;}
 .project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
 .project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--accent);}
 .project-card:hover::before{transform:scaleX(1);}
@@ -297,13 +297,38 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   }
 }
 
-/* Global mobile touch fix */
-*{-webkit-tap-highlight-color:transparent;}
-html{touch-action:pan-y;}
+/* Custom cursor - desktop only */
+@media(hover:hover) and (pointer:fine){
+  body{cursor:none;}
+  #custom-cursor{
+    position:fixed;width:12px;height:12px;
+    background:var(--accent);border-radius:50%;
+    pointer-events:none;z-index:99999;
+    transform:translate(-50%,-50%);
+    transition:width 0.2s,height 0.2s,background 0.2s;
+    mix-blend-mode:difference;
+  }
+  #custom-cursor-ring{
+    position:fixed;width:36px;height:36px;
+    border:1.5px solid var(--accent);border-radius:50%;
+    pointer-events:none;z-index:99998;
+    transform:translate(-50%,-50%);
+    transition:all 0.12s ease;
+    opacity:0.6;
+  }
+  #custom-cursor.hover{width:20px;height:20px;background:var(--accent2);}
+  #custom-cursor-ring.hover{width:52px;height:52px;opacity:0.3;}
+  a,button,.project-card,[onclick]{cursor:none;}
+}
+@media(hover:none),(pointer:coarse){
+  #custom-cursor,#custom-cursor-ring{display:none;}
+  body{cursor:auto;}
+}
 </style>
 </head>
 <body>
 
+<div id="custom-cursor"></div><div id="custom-cursor-ring"></div>
 <div id="progress-bar"></div>
 <button id="back-to-top" aria-label="Back to top">↑</button>
 
@@ -514,8 +539,8 @@ html{touch-action:pan-y;}
     <h2 class="section-title">Featured Work</h2>
     <p class="section-subtitle">Production systems built to solve real problems — click any card to see the full story.</p>
     <div class="projects-grid">
-      <div class="project-card" data-modal="modal1"><div class="project-num">Project 01</div><div class="project-title">Google Meet Attendance Tracker</div><div class="project-desc">Production-grade zero-API attendance system using computer vision. Tracks 50+ participants across breakout rooms via multithreaded architecture. Saved 3+ hours of manual admin per session for a live nonprofit.</div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">Selenium</span><span class="project-tag">Tesseract OCR</span><span class="project-tag">Pandas</span></div><div class="project-hint">Click to explore →</div></div>
-      <div class="project-card" data-modal="modal2"><div class="project-num">Project 02</div><div class="project-title">EV Charging Infrastructure Optimizer</div><div class="project-desc">Geospatial optimization using binary integer programming. 1,000+ candidate sites across D.C. — 72.3% tract coverage, 78.5% population coverage. Interactive Streamlit dashboard + IEEE research paper.</div><div class="project-tags"><span class="project-tag">Pyomo</span><span class="project-tag">GeoPandas</span><span class="project-tag">Streamlit</span><span class="project-tag">CBC Solver</span><span class="project-tag">Folium</span></div><div class="project-hint">Click to explore →</div></div>
+      <article class="project-card" onclick="openModal('modal1')"><div class="project-num">Project 01</div><div class="project-title">Google Meet Attendance Tracker</div><div class="project-desc">Production-grade zero-API attendance system using computer vision. Tracks 50+ participants across breakout rooms via multithreaded architecture. Saved 3+ hours of manual admin per session for a live nonprofit.</div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">Selenium</span><span class="project-tag">Tesseract OCR</span><span class="project-tag">Pandas</span></div><div class="project-hint">Click to explore →</div></article>
+      <article class="project-card" onclick="openModal('modal2')"><div class="project-num">Project 02</div><div class="project-title">EV Charging Infrastructure Optimizer</div><div class="project-desc">Geospatial optimization using binary integer programming. 1,000+ candidate sites across D.C. — 72.3% tract coverage, 78.5% population coverage. Interactive Streamlit dashboard + IEEE research paper.</div><div class="project-tags"><span class="project-tag">Pyomo</span><span class="project-tag">GeoPandas</span><span class="project-tag">Streamlit</span><span class="project-tag">CBC Solver</span><span class="project-tag">Folium</span></div><div class="project-hint">Click to explore →</div></article>
     </div>
   </div>
 </section>
@@ -622,43 +647,34 @@ if('IntersectionObserver' in window && window.innerWidth > 768){
   fadeEls.forEach(el=>obs.observe(el));
 }
 
-// ── PROJECT CARD TOUCH HANDLER ──────────────────────
-// Use touchend for mobile, click for desktop
-// This prevents scroll interference on mobile
-document.querySelectorAll('.project-card').forEach(card => {
-  let startY = 0;
-  let moved = false;
-  
-  card.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-    moved = false;
-  }, {passive: true});
-  
-  card.addEventListener('touchmove', (e) => {
-    const dy = Math.abs(e.touches[0].clientY - startY);
-    if (dy > 8) moved = true; // user is scrolling not tapping
-  }, {passive: true});
-  
-  card.addEventListener('touchend', (e) => {
-    if (!moved) {
-      const modalId = card.getAttribute('data-modal');
-      if (modalId) openModal(modalId);
-    }
-  }, {passive: true});
-  
-  // Keep click for desktop
-  card.addEventListener('click', (e) => {
-    if (!('ontouchstart' in window)) {
-      const modalId = card.getAttribute('data-modal');
-      if (modalId) openModal(modalId);
-    }
-  });
-});
-
 // ── NAV SHADOW ON SCROLL ──────────────────────────────
 window.addEventListener('scroll',()=>{
   document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 1px 12px rgba(0,0,0,0.08)':'none';
 },{passive:true});
+
+// ── CUSTOM CURSOR (desktop only) ─────────────────────
+if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+  const cur = document.getElementById('custom-cursor');
+  const ring = document.getElementById('custom-cursor-ring');
+  let rx=0,ry=0,mx=0,my=0;
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cur.style.left=mx+'px'; cur.style.top=my+'px';
+  });
+  // Ring follows with lag
+  (function animRing(){
+    rx += (mx-rx)*0.15;
+    ry += (my-ry)*0.15;
+    ring.style.left=rx+'px'; ring.style.top=ry+'px';
+    requestAnimationFrame(animRing);
+  })();
+  // Hover effect on interactive elements
+  document.querySelectorAll('a,button,.project-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.classList.add('hover');ring.classList.add('hover');});
+    el.addEventListener('mouseleave',()=>{cur.classList.remove('hover');ring.classList.remove('hover');});
+  });
+}
+
 </script>
 </body>
 </html>
