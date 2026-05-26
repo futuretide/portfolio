@@ -276,39 +276,24 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 }
 @media(max-width:400px){
   h1.hero-name{font-size:2rem;}
-  .hero-stats{gap:0.75rem;}
-}
 
-/* Mobile scroll fix */
+/* ── MOBILE: Resume in nav + scroll fix ── */
 @media(max-width:768px){
-  #back-to-top{bottom:1.5rem;right:1rem;width:36px;height:36px;font-size:0.9rem;}
-  html{scroll-snap-type:none!important;}
-  .section,.section-alt{scroll-snap-align:none!important;}
-  /* Prevent any sticky scroll trap */
-  *{-webkit-overflow-scrolling:touch;}
-}
-
-@media(max-width:768px){
-  .fade-in,.fade-in.animate,.fade-in.animate.visible{
-    opacity:1!important;
-    transform:none!important;
-    transition:none!important;
-  }
-}
-
-/* Touch scroll fix - prevent buttons/cards intercepting scroll */
-button,a,.project-card,.skill-card,.exp-content,.about-card,.contact-link,.pub-card{
-  touch-action:manipulation;
-}
-/* Ensure smooth scrolling on mobile */
-@media(max-width:768px){
-  body{-webkit-overflow-scrolling:touch;overflow-y:auto;}
-  .project-card,.skill-card,.exp-content{touch-action:manipulation;}
-}
-
-@media(max-width:768px){
-  .nav-resume-btn{display:inline-flex!important;padding:0.35rem 0.7rem;font-size:0.75rem;gap:0.3rem;}
+  /* Show resume button directly in nav */
+  .nav-resume-btn{display:inline-flex!important;padding:0.32rem 0.6rem;font-size:0.74rem;gap:0.25rem;}
   .nav-cta{display:none;}
+  /* Back to top position */
+  #back-to-top{bottom:1.5rem;right:1rem;width:36px;height:36px;font-size:0.9rem;}
+  /* Fade-in disabled on mobile - always show sections */
+  .fade-in,.fade-in.animate,.fade-in.animate.visible{
+    opacity:1!important;transform:none!important;transition:none!important;
+  }
+  /* SCROLL FIX: allow vertical pan everywhere */
+  html,body{touch-action:pan-y;overflow-x:hidden;}
+  /* Only tappable elements get tap behavior */
+  a,button,.project-card,.modal-btn,.contact-link,.about-card,.sc{
+    touch-action:manipulation;
+  }
 }
 </style>
 </head>
