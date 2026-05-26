@@ -37,7 +37,7 @@ body.dark{
   --shadow-md:0 4px 16px rgba(0,0,0,0.4);
   --shadow-lg:0 12px 32px rgba(0,0,0,0.5);
 }
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;scroll-snap-type:none;}
 body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background 0.3s,color 0.3s;}
 
 /* PROGRESS BAR */
@@ -277,6 +277,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 @media(max-width:400px){
   h1.hero-name{font-size:2rem;}
   .hero-stats{gap:0.75rem;}
+}
+
+/* Mobile scroll fix */
+@media(max-width:768px){
+  #back-to-top{bottom:1.5rem;right:1rem;width:36px;height:36px;font-size:0.9rem;}
+  html{scroll-snap-type:none!important;}
+  .section,.section-alt{scroll-snap-align:none!important;}
+  /* Prevent any sticky scroll trap */
+  *{-webkit-overflow-scrolling:touch;}
 }
 </style>
 </head>
