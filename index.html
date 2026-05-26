@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Harsha Sunkavalli — Cloud & AI Solutions</title>
+<meta name="description" content="Sri Harsha Sunkavalli — Cloud & AI Solutions Specialist. AWS Certified. MS CS George Mason University. Targeting Solutions Architect, AI/Cloud Engineer, Forward Deployed Engineer roles.">
+<meta name="keywords" content="Harsha Sunkavalli, Cloud Solutions Architect, AI Engineer, AWS Certified, Forward Deployed Engineer, GMU, LLM, RAG, Python">
+<meta name="author" content="Sri Harsha Sunkavalli">
+<meta property="og:title" content="Sri Harsha Sunkavalli — Cloud & AI Solutions Specialist">
+<meta property="og:description" content="AWS Certified Cloud & AI professional. MS CS George Mason. Building scalable AI systems and cloud infrastructure.">
+<meta property="og:url" content="https://futuretide.github.io/portfolio">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#ffffff;--bg2:#f7f8fa;--bg3:#f0f2f5;
+  --text:#0a0a0a;--text2:#3d3d3d;--muted:#6b7280;
+  --accent:#0f62fe;--accent-light:#eff4ff;--accent2:#6f42c1;
+  --green:#059669;--green-light:#ecfdf5;
+  --border:#e5e7eb;--border2:#d1d5db;--card:#ffffff;
+  --shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg:0 12px 32px rgba(0,0,0,0.1),0 4px 12px rgba(0,0,0,0.05);
+}
+body.dark{
+  --bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;
+  --text:#f0f0f0;--text2:#c8c8d8;--muted:#8888aa;
+  --accent:#60a5fa;--accent-light:#1e3a5f;--accent2:#a78bfa;
+  --green:#34d399;--green-light:#064e3b;
+  --border:#2a2a3a;--border2:#3a3a4a;--card:#13131e;
+  --shadow:0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 12px 32px rgba(0,0,0,0.5);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;overflow-x:hidden;line-height:1.6;transition:background 0.3s,color 0.3s;}
+
+/* PROGRESS BAR */
+#progress-bar{position:fixed;top:0;left:0;height:5px;background:linear-gradient(90deg,#0f62fe,#6f42c1,#059669);width:0%;z-index:9999;transition:width 0.15s linear;pointer-events:none;box-shadow:0 0 8px rgba(15,98,254,0.5);}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:all 0.2s;}
+body.dark nav{background:rgba(10,10,15,0.95);}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.nav-logo{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);letter-spacing:-0.02em;text-decoration:none;white-space:nowrap;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.15s;white-space:nowrap;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);}
+.nav-right{display:flex;align-items:center;gap:0.6rem;flex-shrink:0;}
+.nav-resume-btn{display:inline-flex;align-items:center;gap:0.4rem;background:transparent;color:var(--green);border:1.5px solid var(--green);padding:0.4rem 0.9rem;border-radius:6px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.15s;white-space:nowrap;font-family:'Inter',sans-serif;}
+.nav-resume-btn:hover{background:var(--green);color:#fff;transform:translateY(-1px);}
+.nav-cta{background:var(--accent);color:#fff;padding:0.45rem 1rem;border-radius:6px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.15s;white-space:nowrap;}
+.nav-cta:hover{opacity:0.9;transform:translateY(-1px);}
+#theme-toggle{background:none;border:1px solid var(--border2);border-radius:7px;width:34px;height:34px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.95rem;transition:all 0.2s;flex-shrink:0;}
+#theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;border-radius:6px;border:1px solid var(--border);background:none;}
+.hamburger span{width:18px;height:2px;background:var(--text);border-radius:2px;transition:all 0.2s;}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:99;box-shadow:var(--shadow-md);}
+.mobile-menu.open{display:block;}
+.mobile-menu a{display:block;padding:0.9rem 1.5rem;color:var(--text);text-decoration:none;font-size:0.95rem;font-weight:500;border-bottom:1px solid var(--border);transition:color 0.15s;}
+.mobile-menu a:hover{color:var(--accent);}
+.mobile-menu-bottom{padding:1rem 1.5rem;display:flex;gap:0.75rem;}
+.mobile-resume-btn{flex:1;text-align:center;background:transparent;color:var(--green);border:1.5px solid var(--green);padding:0.6rem;border-radius:7px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;}
+.mobile-contact-btn{flex:1;text-align:center;background:var(--accent);color:#fff;border:none;padding:0.6rem;border-radius:7px;font-size:0.85rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:'Inter',sans-serif;}
+
+/* RESUME MODAL */
+.resume-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);z-index:600;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;padding:1rem;}
+.resume-modal-overlay.active{opacity:1;pointer-events:all;}
+.resume-modal{background:var(--card);border-radius:16px;width:100%;max-width:780px;height:90vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);transform:translateY(20px);transition:transform 0.25s;overflow:hidden;}
+.resume-modal-overlay.active .resume-modal{transform:translateY(0);}
+.resume-modal-header{padding:1rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.resume-modal-title{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:700;color:var(--text);}
+.resume-modal-actions{display:flex;align-items:center;gap:0.75rem;}
+.resume-download-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--green);color:#fff;padding:0.5rem 1.1rem;border-radius:7px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.15s;}
+.resume-download-btn:hover{opacity:0.9;}
+.resume-modal-close{width:32px;height:32px;border-radius:7px;background:var(--bg3);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1rem;transition:background 0.15s;}
+.resume-modal-close:hover{background:var(--border);}
+.resume-modal-body{flex:1;overflow:hidden;}
+.resume-modal-body iframe{width:100%;height:100%;border:none;}
+
+/* BACK TO TOP */
+#back-to-top{position:fixed;bottom:2rem;right:2rem;width:42px;height:42px;background:var(--accent);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 14px rgba(15,98,254,0.35);opacity:0;transform:translateY(12px);transition:all 0.25s;z-index:300;}
+#back-to-top.visible{opacity:1;transform:translateY(0);}
+#back-to-top:hover{transform:translateY(-3px);}
+
+/* HERO */
+section{position:relative;}
+#hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 4rem;background:linear-gradient(180deg,#f8faff 0%,#ffffff 100%);}
+body.dark #hero{background:linear-gradient(180deg,#0d0d18 0%,#0a0a0f 100%);}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:4rem;align-items:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--green-light);color:var(--green);padding:0.35rem 0.85rem;border-radius:100px;font-size:0.78rem;font-weight:600;margin-bottom:1.5rem;}
+.hero-badge-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pg 2s infinite;}
+@keyframes pg{0%,100%{opacity:1;}50%{opacity:0.3;}}
+h1.hero-name{font-family:'Outfit',sans-serif;font-size:clamp(2.5rem,4vw,3.75rem);font-weight:700;line-height:1.1;letter-spacing:-0.03em;margin-bottom:1rem;}
+h1.hero-name .accent{color:var(--accent);}
+.hero-title{font-size:1.1rem;font-weight:500;color:var(--accent);margin-bottom:1rem;}
+.hero-desc{font-size:0.97rem;color:var(--muted);line-height:1.75;margin-bottom:2rem;max-width:520px;}
+.hero-btns{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.btn-primary{background:var(--accent);color:#fff;padding:0.75rem 1.6rem;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.15s;display:inline-flex;align-items:center;gap:0.5rem;}
+.btn-primary:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 4px 14px rgba(15,98,254,0.3);}
+.btn-secondary{background:transparent;color:var(--text);padding:0.75rem 1.6rem;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;transition:all 0.15s;border:1.5px solid var(--border2);display:inline-flex;align-items:center;gap:0.5rem;}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+.hero-stats{display:flex;gap:2rem;flex-wrap:wrap;}
+.hero-stat-num{font-family:'Outfit',sans-serif;font-size:1.75rem;font-weight:700;line-height:1;}
+.hero-stat-label{font-size:0.76rem;color:var(--muted);margin-top:0.2rem;}
+.hero-stat-divider{width:1px;background:var(--border);}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:var(--shadow-lg);}
+.hero-card-name{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:0.2rem;}
+.hero-card-role{font-size:0.82rem;color:var(--accent);font-weight:500;margin-bottom:1.5rem;}
+.hero-card-items{display:flex;flex-direction:column;gap:0.85rem;}
+.hero-card-item{display:flex;align-items:center;gap:0.75rem;font-size:0.84rem;color:var(--text2);}
+.hero-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.hero-card-item-text{font-weight:500;}
+.hero-card-item-sub{font-size:0.73rem;color:var(--muted);}
+.cert-badge{margin-top:1.5rem;padding:0.75rem 1rem;background:linear-gradient(135deg,#fff7e6,#fffbf0);border:1px solid #fed7aa;border-radius:10px;display:flex;align-items:center;gap:0.6rem;}
+body.dark .cert-badge{background:linear-gradient(135deg,#1c1400,#251b00);border-color:#5a3e00;}
+.cert-badge-icon{font-size:1.1rem;}
+.cert-badge-text{font-size:0.78rem;font-weight:600;color:#c2410c;}
+body.dark .cert-badge-text{color:#fbbf24;}
+.cert-badge-sub{font-size:0.7rem;color:#9a3412;margin-top:0.05rem;}
+body.dark .cert-badge-sub{color:#d97706;}
+
+/* SECTIONS */
+.section{padding:5rem 2rem;}
+.section-alt{background:var(--bg2);}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-tag{display:inline-block;font-size:0.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;}
+.section-title{font-family:'Outfit',sans-serif;font-size:clamp(1.75rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.02em;margin-bottom:0.75rem;}
+.section-subtitle{font-size:0.95rem;color:var(--muted);max-width:560px;line-height:1.75;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem;}
+.about-text p{color:var(--text2);line-height:1.85;margin-bottom:1rem;font-size:0.93rem;}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;transition:all 0.2s;}
+.about-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md);}
+.about-card-num{font-family:'Outfit',sans-serif;font-size:2rem;font-weight:700;color:var(--accent);line-height:1;}
+.about-card-label{font-size:0.73rem;color:var(--muted);margin-top:0.3rem;font-weight:500;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:3rem;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:all 0.2s;}
+.skill-card:hover{border-color:var(--accent);box-shadow:var(--shadow-md);transform:translateY(-2px);}
+.skill-card-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+.skill-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.skill-title{font-size:0.93rem;font-weight:700;}
+.skill-level{font-size:0.7rem;font-weight:600;padding:0.18rem 0.55rem;border-radius:100px;margin-top:0.1rem;display:inline-block;}
+.skill-tools{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.skill-tool{font-size:0.77rem;color:var(--text2);background:var(--bg3);padding:0.25rem 0.6rem;border-radius:6px;font-weight:500;}
+
+/* EXPERIENCE */
+.exp-timeline{margin-top:3rem;position:relative;}
+.exp-timeline::before{content:'';position:absolute;left:20px;top:24px;bottom:24px;width:1px;background:var(--border);}
+.exp-item{display:grid;grid-template-columns:44px 1fr;gap:1.5rem;position:relative;padding-bottom:2.5rem;}
+.exp-item:last-child{padding-bottom:0;}
+.exp-dot{width:40px;height:40px;border-radius:50%;background:var(--accent-light);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;position:relative;z-index:1;}
+.exp-content{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:box-shadow 0.2s;}
+.exp-content:hover{box-shadow:var(--shadow-md);}
+.exp-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.4rem;flex-wrap:wrap;}
+.exp-role{font-size:1rem;font-weight:700;}
+.exp-date{font-size:0.75rem;color:var(--muted);background:var(--bg3);padding:0.2rem 0.6rem;border-radius:100px;white-space:nowrap;font-weight:500;}
+.exp-company{font-size:0.85rem;color:var(--accent);font-weight:500;margin-bottom:1rem;}
+.exp-bullets{display:flex;flex-direction:column;gap:0.5rem;}
+.exp-bullet{font-size:0.875rem;color:var(--text2);line-height:1.7;padding-left:1rem;position:relative;}
+.exp-bullet::before{content:'';position:absolute;left:0;top:0.6em;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+.exp-bullet strong{color:var(--text);font-weight:600;}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.5rem;margin-top:3rem;}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all 0.2s;cursor:pointer;position:relative;overflow:hidden;}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transition:transform 0.3s;transform-origin:left;}
+.project-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--accent);}
+.project-card:hover::before{transform:scaleX(1);}
+.project-num{font-size:0.7rem;font-weight:700;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;}
+.project-title{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.6rem;letter-spacing:-0.01em;}
+.project-desc{font-size:0.875rem;color:var(--muted);line-height:1.7;margin-bottom:1.25rem;}
+.project-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.25rem;}
+.project-tag{font-size:0.73rem;color:var(--accent2);background:#f3f0ff;padding:0.2rem 0.55rem;border-radius:6px;font-weight:500;}
+body.dark .project-tag{background:#1e1a3a;}
+.project-hint{font-size:0.8rem;color:var(--accent);font-weight:500;}
+
+/* PROJECT MODAL */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;padding:1rem;}
+.modal-overlay.active{opacity:1;pointer-events:all;}
+.modal{background:var(--card);border-radius:16px;padding:2rem;max-width:600px;width:100%;position:relative;box-shadow:var(--shadow-lg);transform:translateY(16px);transition:transform 0.25s;max-height:90vh;overflow-y:auto;}
+.modal-overlay.active .modal{transform:translateY(0);}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;width:32px;height:32px;border-radius:8px;background:var(--bg3);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:1rem;transition:background 0.15s;}
+.modal-close:hover{background:var(--border);}
+.modal-tag{font-size:0.7rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;}
+.modal-title{font-family:'Outfit',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem;}
+.modal-summary{font-size:0.9rem;color:var(--text2);line-height:1.8;margin-bottom:1.25rem;}
+.modal-impact{background:var(--bg2);border-radius:10px;padding:1.25rem;margin-bottom:1.25rem;}
+.modal-impact-title{font-size:0.7rem;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem;}
+.modal-impact ul{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.modal-impact ul li{font-size:0.875rem;color:var(--text2);padding-left:1.25rem;position:relative;line-height:1.6;}
+.modal-impact ul li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700;font-size:0.8rem;}
+.modal-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem;}
+.modal-tag2{font-size:0.78rem;color:var(--accent2);background:#f3f0ff;padding:0.25rem 0.65rem;border-radius:6px;font-weight:500;}
+body.dark .modal-tag2{background:#1e1a3a;}
+.modal-btn{display:inline-flex;align-items:center;gap:0.5rem;background:var(--accent);color:#fff;padding:0.7rem 1.5rem;border-radius:8px;font-size:0.875rem;font-weight:600;text-decoration:none;transition:all 0.15s;}
+.modal-btn:hover{opacity:0.9;}
+
+/* PUBLICATION */
+.pub-card{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:1.75rem;margin-top:3rem;transition:box-shadow 0.2s;}
+.pub-card:hover{box-shadow:var(--shadow-md);}
+.pub-badge{display:inline-flex;align-items:center;gap:0.35rem;background:var(--green-light);color:var(--green);padding:0.22rem 0.65rem;border-radius:100px;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem;}
+.pub-title{font-size:1rem;font-weight:700;margin-bottom:0.4rem;line-height:1.5;}
+.pub-meta{font-size:0.78rem;color:var(--accent);font-weight:500;margin-bottom:0.75rem;}
+.pub-desc{font-size:0.875rem;color:var(--muted);line-height:1.75;}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem;}
+.contact-info p{color:var(--text2);line-height:1.85;margin-bottom:1rem;font-size:0.93rem;}
+.contact-status{background:var(--green-light);border:1px solid #a7f3d0;border-radius:10px;padding:1rem 1.25rem;margin-top:1.25rem;}
+body.dark .contact-status{border-color:#065f46;}
+.contact-status-row{display:flex;align-items:center;gap:0.5rem;font-size:0.84rem;color:var(--green);font-weight:500;margin-bottom:0.35rem;}
+.contact-status-row:last-child{margin-bottom:0;}
+.contact-dot{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pg 2s infinite;}
+.contact-links{display:flex;flex-direction:column;gap:0.75rem;}
+.contact-link{display:flex;align-items:center;gap:1rem;color:var(--text);text-decoration:none;font-size:0.88rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:all 0.15s;font-weight:500;}
+.contact-link:hover{border-color:var(--accent);box-shadow:var(--shadow-md);transform:translateX(4px);}
+.contact-link-icon{width:38px;height:38px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:0.9rem;flex-shrink:0;font-weight:700;}
+.contact-link-label{font-size:0.73rem;color:var(--muted);margin-top:0.1rem;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-name{font-family:'Outfit',sans-serif;font-weight:700;font-size:0.95rem;}
+.footer-copy{font-size:0.8rem;color:var(--muted);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.footer-links a:hover{color:var(--accent);}
+
+/* FADE IN */
+.fade-in{opacity:1;transform:translateY(0);transition:opacity 0.55s ease,transform 0.55s ease;}
+.fade-in.animate{opacity:0;transform:translateY(22px);}
+.fade-in.animate.visible{opacity:1;transform:translateY(0);}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-inner{padding:0 1rem;height:56px;}
+  .nav-links{display:none;}
+  .nav-resume-btn{display:none;}
+  .nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .mobile-menu{top:56px;}
+  #hero{padding:5rem 1.25rem 2.5rem;min-height:auto;}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-card{display:none;}
+  h1.hero-name{font-size:2.4rem;}
+  .hero-btns{flex-direction:column;}
+  .hero-btns a,.hero-btns button{width:100%;justify-content:center;}
+  .hero-stats{gap:1.25rem;}
+  .section{padding:3.5rem 1.25rem;}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:2rem;}
+  .about-cards{grid-template-columns:1fr 1fr;}
+  .skills-grid{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  .exp-item{grid-template-columns:36px 1fr;gap:1rem;}
+  .exp-dot{width:32px;height:32px;font-size:0.8rem;}
+  .exp-timeline::before{left:16px;}
+  .exp-meta{flex-direction:column;gap:0.3rem;}
+  .exp-content{padding:1.1rem;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .footer-links{justify-content:center;}
+  .resume-modal{height:95vh;border-radius:12px;}
+  #back-to-top{bottom:1.25rem;right:1.25rem;width:38px;height:38px;}
+}
+@media(max-width:400px){
+  h1.hero-name{font-size:2rem;}
+  .hero-stats{gap:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-to-top" aria-label="Back to top">↑</button>
+
+<!-- RESUME MODAL -->
+<div class="resume-modal-overlay" id="resumeModal">
+  <div class="resume-modal">
+    <div class="resume-modal-header">
+      <div class="resume-modal-title">📄 Harsha Sunkavalli — Resume</div>
+      <div class="resume-modal-actions">
+        <a href="https://drive.google.com/uc?export=download&id=1V7dRCmUMb9PSU0Zhj9_QviF8-sB1LuZT" class="resume-download-btn">⬇ Download PDF</a>
+        <button class="resume-modal-close" onclick="closeResume()">✕</button>
+      </div>
+    </div>
+    <div class="resume-modal-body">
+      <iframe src="https://drive.google.com/file/d/1V7dRCmUMb9PSU0Zhj9_QviF8-sB1LuZT/preview" allow="autoplay"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT MODALS -->
+<div class="modal-overlay" id="modal1">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+    <div class="modal-tag">Project 01</div>
+    <div class="modal-title">Google Meet Attendance Tracker</div>
+    <div class="modal-summary">A production-grade, zero-API attendance system built for a live nonprofit. Uses computer vision and browser automation to track participant presence across Google Meet main sessions and breakout rooms — no Google API required.</div>
+    <div class="modal-impact"><div class="modal-impact-title">Key Impact</div><ul><li>Eliminated 3+ hours of manual admin work per session</li><li>Tracked 50+ weekly participants across breakout rooms</li><li>Reduced administrative reporting overhead by 80%</li><li>Deployed live for Women of Connections Ministry</li></ul></div>
+    <div class="modal-tags"><span class="modal-tag2">Python</span><span class="modal-tag2">OpenCV</span><span class="modal-tag2">Selenium</span><span class="modal-tag2">Tesseract OCR</span><span class="modal-tag2">Pandas</span><span class="modal-tag2">Multithreading</span></div>
+    <a href="https://github.com/futuretide/Google-meet-attendance-tracker" target="_blank" class="modal-btn">View on GitHub →</a>
+  </div>
+</div>
+<div class="modal-overlay" id="modal2">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+    <div class="modal-tag">Project 02</div>
+    <div class="modal-title">EV Charging Infrastructure Optimizer</div>
+    <div class="modal-summary">A geospatial decision support system for optimizing EV charging station placement across Washington D.C. using binary integer programming. Integrates U.S. Census data, road network analysis, and existing charger locations. Includes interactive Streamlit dashboard and full IEEE research paper.</div>
+    <div class="modal-impact"><div class="modal-impact-title">Key Impact</div><ul><li>72.3% tract coverage — up from 21.7% baseline</li><li>78.5% of D.C. population covered with just 50 chargers</li><li>Evaluated 1,000+ candidate sites with sensitivity analysis</li><li>Published as IEEE-format research paper at GMU</li></ul></div>
+    <div class="modal-tags"><span class="modal-tag2">Pyomo</span><span class="modal-tag2">GeoPandas</span><span class="modal-tag2">Streamlit</span><span class="modal-tag2">CBC Solver</span><span class="modal-tag2">Folium</span><span class="modal-tag2">SciPy</span></div>
+    <a href="https://github.com/futuretide/ev-charging-optimizer" target="_blank" class="modal-btn">View on GitHub →</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Harsha <span>S.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="nav-resume-btn" onclick="openResume()">📄 View Resume</button>
+      <a href="#contact" class="nav-cta">Contact Me</a>
+      <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <div class="mobile-menu-bottom">
+    <button class="mobile-resume-btn" onclick="openResume();closeMobile()">📄 View Resume</button>
+    <a href="#contact" class="mobile-contact-btn" onclick="closeMobile()">Contact Me</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Open to Work — Fairfax, VA · Open to Relocate</div>
+      <h1 class="hero-name">Sri Harsha<br><span class="accent">Sunkavalli</span></h1>
+      <div class="hero-title">Cloud & AI Solutions Specialist</div>
+      <p class="hero-desc">Building scalable AI systems, edge computing infrastructure, and LLM pipelines. 3+ years delivering production solutions across manufacturing, research, and nonprofit sectors.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+        <a href="https://github.com/futuretide" target="_blank" class="btn-secondary">GitHub</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">3+</div><div class="hero-stat-label">Years Experience</div></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><div class="hero-stat-num">3.83</div><div class="hero-stat-label">MS GPA @ GMU</div></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">AWS Certifications</div></div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat"><div class="hero-stat-num">1</div><div class="hero-stat-label">Publication</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="hero-card">
+        <div class="hero-card-name">Sri Harsha Sunkavalli</div>
+        <div class="hero-card-role">Cloud & AI Solutions Specialist</div>
+        <div class="hero-card-items">
+          <div class="hero-card-item"><div class="hero-card-icon" style="background:#eff4ff;">🎓</div><div><div class="hero-card-item-text">George Mason University</div><div class="hero-card-item-sub">MS Computer Science · GPA 3.83</div></div></div>
+          <div class="hero-card-item"><div class="hero-card-icon" style="background:#ecfdf5;">📍</div><div><div class="hero-card-item-text">Fairfax, VA</div><div class="hero-card-item-sub">Open to relocate anywhere in the US</div></div></div>
+          <div class="hero-card-item"><div class="hero-card-icon" style="background:#fef3c7;">⚙️</div><div><div class="hero-card-item-text">AWS Cloud Practitioner</div><div class="hero-card-item-sub">Certified · January 2026</div></div></div>
+          <div class="hero-card-item"><div class="hero-card-icon" style="background:#fdf4ff;">🔬</div><div><div class="hero-card-item-text">Peer-Reviewed Researcher</div><div class="hero-card-item-sub">IoT & AI-driven embedded systems</div></div></div>
+        </div>
+        <div class="cert-badge"><div class="cert-badge-icon">🏗️</div><div><div class="cert-badge-text">AWS SAA-C03 In Progress</div><div class="cert-badge-sub">Solutions Architect Associate · Expected June 2026</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section section-alt fade-in">
+  <div class="section-inner">
+    <div class="section-tag">About</div>
+    <h2 class="section-title">Background & Mission</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a Cloud and AI professional with a track record of turning complex technical challenges into production systems that actually work. From deploying edge computing infrastructure across a 10,000-unit-per-month manufacturing line to building zero-API computer vision tools for nonprofits, I focus on solutions that deliver measurable value.</p>
+        <p>My MS in Computer Science from George Mason University (GPA 3.83) gave me a strong research foundation — I co-authored an IEEE paper on geospatial optimization and served as a Graduate Research Assistant on Decision Guidance Systems. I bring both the academic rigor and the engineering pragmatism that SA and AI/Cloud roles demand.</p>
+        <p>I'm actively targeting Solutions Architect, AI/Cloud Engineer, and Forward Deployed Engineer roles where I can work directly with customers to solve real infrastructure and AI adoption challenges.</p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card"><div class="about-card-num">3+</div><div class="about-card-label">Years professional experience</div></div>
+        <div class="about-card"><div class="about-card-num">3.83</div><div class="about-card-label">MS GPA at George Mason</div></div>
+        <div class="about-card"><div class="about-card-num">5+</div><div class="about-card-label">AI pipelines built & deployed</div></div>
+        <div class="about-card"><div class="about-card-num">80%</div><div class="about-card-label">Reporting overhead cut</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section fade-in">
+  <div class="section-inner">
+    <div class="section-tag">Skills</div>
+    <h2 class="section-title">Technical Expertise</h2>
+    <p class="section-subtitle">Full-stack cloud and AI capabilities from infrastructure architecture to production deployment.</p>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#eff4ff;">☁️</div><div><div class="skill-title">Cloud & AWS</div><div class="skill-level" style="background:#eff4ff;color:#0f62fe;">Advanced</div></div></div><div class="skill-tools"><span class="skill-tool">EC2</span><span class="skill-tool">S3</span><span class="skill-tool">Lambda</span><span class="skill-tool">VPC / IAM</span><span class="skill-tool">API Gateway</span><span class="skill-tool">CloudWatch</span><span class="skill-tool">CodePipeline</span></div></div>
+      <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#fdf4ff;">🤖</div><div><div class="skill-title">AI & LLMs</div><div class="skill-level" style="background:#fdf4ff;color:#6f42c1;">Expert</div></div></div><div class="skill-tools"><span class="skill-tool">OpenAI API</span><span class="skill-tool">RAG Pipelines</span><span class="skill-tool">Prompt Eng.</span><span class="skill-tool">LangChain</span><span class="skill-tool">Vector DBs</span></div></div>
+      <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#ecfdf5;">👁️</div><div><div class="skill-title">Computer Vision</div><div class="skill-level" style="background:#ecfdf5;color:#059669;">Advanced</div></div></div><div class="skill-tools"><span class="skill-tool">OpenCV</span><span class="skill-tool">HSV Detection</span><span class="skill-tool">Tesseract OCR</span><span class="skill-tool">TensorFlow</span><span class="skill-tool">Scikit-learn</span></div></div>
+      <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#fef9c3;">🐍</div><div><div class="skill-title">Python & Data</div><div class="skill-level" style="background:#fef9c3;color:#854d0e;">Expert</div></div></div><div class="skill-tools"><span class="skill-tool">Python</span><span class="skill-tool">Pandas</span><span class="skill-tool">NumPy</span><span class="skill-tool">SQL</span><span class="skill-tool">Power BI</span><span class="skill-tool">Pyomo</span></div></div>
+      <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#fff1f2;">🔌</div><div><div class="skill-title">Edge Computing & IoT</div><div class="skill-level" style="background:#fff1f2;color:#be123c;">Advanced</div></div></div><div class="skill-tools"><span class="skill-tool">Raspberry Pi</span><span class="skill-tool">IoT Sensors</span><span class="skill-tool">Linux</span><span class="skill-tool">Real-time Systems</span></div></div>
+      <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#f0fdf4;">🌐</div><div><div class="skill-title">Web Development</div><div class="skill-level" style="background:#f0fdf4;color:#15803d;">Proficient</div></div></div><div class="skill-tools"><span class="skill-tool">React.js</span><span class="skill-tool">Node.js</span><span class="skill-tool">REST APIs</span><span class="skill-tool">Django</span><span class="skill-tool">MongoDB</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section section-alt fade-in">
+  <div class="section-inner">
+    <div class="section-tag">Experience</div>
+    <h2 class="section-title">Work History</h2>
+    <div class="exp-timeline">
+      <div class="exp-item">
+        <div class="exp-dot">💬</div>
+        <div class="exp-content">
+          <div class="exp-meta"><div class="exp-role">Data Analyst</div><div class="exp-date">Mar 2026 – May 2026</div></div>
+          <div class="exp-company">Women of Connections Ministry · Remote · Nonprofit</div>
+          <div class="exp-bullets">
+            <div class="exp-bullet">Architected a <strong>zero-budget computer vision pipeline</strong> using OpenCV HSV masking and Selenium automation to track Google Meet attendance — no API required.</div>
+            <div class="exp-bullet">Replaced fully manual headcount for <strong>50+ weekly participants</strong>, saving 3+ hours of admin work per session and cutting reporting overhead by 80%.</div>
+            <div class="exp-bullet">Built <strong>multithreaded Python architecture</strong> handling dynamic layout shifts — a production-grade system deployed live for a real organization.</div>
+            <div class="exp-bullet">Designed automated CSV reporting enabling <strong>zero manual intervention</strong> with timestamped per-room records.</div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot">🔬</div>
+        <div class="exp-content">
+          <div class="exp-meta"><div class="exp-role">Graduate Research Assistant</div><div class="exp-date">Jan 2025 – Dec 2025</div></div>
+          <div class="exp-company">George Mason University · Fairfax, VA · CS787 Decision Guidance Systems</div>
+          <div class="exp-bullets">
+            <div class="exp-bullet">Developed <strong>AI-assisted decision frameworks</strong> combining ML models and optimization modeling for multi-variable decision-making across 3+ problem domains.</div>
+            <div class="exp-bullet">Built and validated <strong>Python ML pipelines</strong> using Scikit-learn, Pyomo, and NumPy over a 12-month research cycle.</div>
+            <div class="exp-bullet">Co-authored a <strong>full IEEE-format research paper</strong> on geospatial EV charging optimization, achieving 72.3% tract coverage across Washington D.C.</div>
+            <div class="exp-bullet">Presented findings demonstrating measurable <strong>accuracy improvements over baseline models</strong> in multi-objective optimization scenarios.</div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot">🏭</div>
+        <div class="exp-content">
+          <div class="exp-meta"><div class="exp-role">Data Scientist</div><div class="exp-date">Jun 2021 – Jan 2024</div></div>
+          <div class="exp-company">CEAT Tyres · Vadodara, India · Manufacturing · 10,000+ units/month</div>
+          <div class="exp-bullets">
+            <div class="exp-bullet">Promoted intern → full-time Data Scientist — <strong>one of fewer than 5 interns converted</strong> in that cohort based on technical performance.</div>
+            <div class="exp-bullet">Deployed <strong>edge computing infrastructure using 20+ Raspberry Pi devices</strong> for real-time data capture across a large-scale manufacturing line.</div>
+            <div class="exp-bullet">Architected an <strong>end-to-end traceability pipeline across 15+ production stages</strong>, cutting root cause investigation time by 30%.</div>
+            <div class="exp-bullet">Built <strong>Power BI dashboards processing 50,000+ inspection images</strong> from 20+ camera checkpoints across 3 product lines.</div>
+            <div class="exp-bullet">Automated quality inspection workflows, <strong>reducing manual review cycles by 40%</strong> across production shifts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section fade-in">
+  <div class="section-inner">
+    <div class="section-tag">Projects</div>
+    <h2 class="section-title">Featured Work</h2>
+    <p class="section-subtitle">Production systems built to solve real problems — click any card to see the full story.</p>
+    <div class="projects-grid">
+      <div class="project-card" onclick="openModal('modal1')"><div class="project-num">Project 01</div><div class="project-title">Google Meet Attendance Tracker</div><div class="project-desc">Production-grade zero-API attendance system using computer vision. Tracks 50+ participants across breakout rooms via multithreaded architecture. Saved 3+ hours of manual admin per session for a live nonprofit.</div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">Selenium</span><span class="project-tag">Tesseract OCR</span><span class="project-tag">Pandas</span></div><div class="project-hint">Click to explore →</div></div>
+      <div class="project-card" onclick="openModal('modal2')"><div class="project-num">Project 02</div><div class="project-title">EV Charging Infrastructure Optimizer</div><div class="project-desc">Geospatial optimization using binary integer programming. 1,000+ candidate sites across D.C. — 72.3% tract coverage, 78.5% population coverage. Interactive Streamlit dashboard + IEEE research paper.</div><div class="project-tags"><span class="project-tag">Pyomo</span><span class="project-tag">GeoPandas</span><span class="project-tag">Streamlit</span><span class="project-tag">CBC Solver</span><span class="project-tag">Folium</span></div><div class="project-hint">Click to explore →</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="section section-alt fade-in">
+  <div class="section-inner">
+    <div class="section-tag">Research</div>
+    <h2 class="section-title">Publications</h2>
+    <div class="pub-card"><div class="pub-badge">✓ Peer-Reviewed · 2021</div><div class="pub-title">Design of IoT-Enabled Farmer-Centric Multi-Crop Irrigation Support System</div><div class="pub-meta">ResearchGate · SSIC 2021 International Conference</div><div class="pub-desc">Research on IoT sensor networks, edge decision logic, and AI-driven automation for real-time multi-crop irrigation management. End-to-end system design from hardware sensor integration to cloud-connected control logic.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section fade-in">
+  <div class="section-inner">
+    <div class="section-tag">Contact</div>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-subtitle">Actively seeking Solutions Architect, AI/Cloud Engineer, and Forward Deployed Engineer roles.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>Currently based in Fairfax, VA and open to relocate anywhere in the US. I respond to all messages within 24 hours and am available for calls, interviews, or technical discussions.</p>
+        <p>If you're looking for someone who can bridge the gap between complex AI/cloud infrastructure and real business value — let's talk.</p>
+        <div class="contact-status">
+          <div class="contact-status-row"><div class="contact-dot"></div>Open to Work — actively interviewing</div>
+          <div class="contact-status-row"><div class="contact-dot"></div>Location: Fairfax, VA · Open to Relocate</div>
+          <div class="contact-status-row"><div class="contact-dot"></div>Response time: under 24 hours</div>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:smasriharsha@gmail.com" class="contact-link"><div class="contact-link-icon">@</div><div><div>smasriharsha@gmail.com</div><div class="contact-link-label">Email — preferred</div></div></a>
+        <a href="https://www.linkedin.com/in/harsha-sunkavalli" target="_blank" class="contact-link"><div class="contact-link-icon">in</div><div><div>linkedin.com/in/harsha-sunkavalli</div><div class="contact-link-label">LinkedIn</div></div></a>
+        <a href="https://github.com/futuretide" target="_blank" class="contact-link"><div class="contact-link-icon" style="font-family:monospace;font-size:0.8rem;">&lt;/&gt;</div><div><div>github.com/futuretide</div><div class="contact-link-label">GitHub — view my code</div></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-name">Sri Harsha Sunkavalli</div>
+    <div class="footer-copy">© 2026 · Fairfax, VA · Open to Work</div>
+    <div class="footer-links">
+      <a href="https://github.com/futuretide" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/harsha-sunkavalli" target="_blank">LinkedIn</a>
+      <a href="mailto:smasriharsha@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── RESUME MODAL ──────────────────────────────────────
+function openResume(){document.getElementById('resumeModal').classList.add('active');}
+function closeResume(){document.getElementById('resumeModal').classList.remove('active');}
+document.getElementById('resumeModal').addEventListener('click',function(e){if(e.target===this)closeResume();});
+
+// ── PROJECT MODALS ────────────────────────────────────
+function openModal(id){document.getElementById(id).classList.add('active');}
+function closeModal(id){document.getElementById(id).classList.remove('active');}
+document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('active');});});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeResume();document.querySelectorAll('.modal-overlay.active').forEach(m=>m.classList.remove('active'));}});
+
+// ── HAMBURGER ─────────────────────────────────────────
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+function closeMobile(){mobileMenu.classList.remove('open');}
+document.addEventListener('click',e=>{if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target))mobileMenu.classList.remove('open');});
+
+// ── DARK MODE ─────────────────────────────────────────
+const themeBtn=document.getElementById('theme-toggle');
+if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark');themeBtn.textContent='☀️';}
+themeBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  const dark=document.body.classList.contains('dark');
+  themeBtn.textContent=dark?'☀️':'🌙';
+  localStorage.setItem('theme',dark?'dark':'light');
+});
+
+// ── SCROLL: progress + back-to-top + active nav ───────
+const progressBar=document.getElementById('progress-bar');
+const backToTop=document.getElementById('back-to-top');
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll',()=>{
+  const scrolled=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  progressBar.style.width=scrolled+'%';
+  backToTop.classList.toggle('visible',window.scrollY>400);
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id;});
+  navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current);});
+},{passive:true});
+
+backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ── FADE IN ───────────────────────────────────────────
+if('IntersectionObserver' in window){
+  const fadeEls=document.querySelectorAll('.fade-in');
+  fadeEls.forEach(el=>el.classList.add('animate'));
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.08});
+  fadeEls.forEach(el=>obs.observe(el));
+}
+
+// ── NAV SHADOW ON SCROLL ──────────────────────────────
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 1px 12px rgba(0,0,0,0.08)':'none';
+},{passive:true});
+</script>
+</body>
+</html>
