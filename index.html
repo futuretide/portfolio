@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="google-site-verification" content="RoghUz0jy7bWROtd77eY7naifzoGuvovE__o0fhvHMo" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sri Harsha Sunkavalli — Cloud & AI Solutions</title>
-<meta name="description" content="Sri Harsha Sunkavalli — Cloud & AI Solutions Specialist. AWS Certified. MS CS George Mason University. Targeting Solutions Architect, AI/Cloud Engineer, Forward Deployed Engineer roles.">
-<meta name="keywords" content="Harsha Sunkavalli, Cloud Solutions Architect, AI Engineer, AWS Certified, Forward Deployed Engineer, GMU, LLM, RAG, Python">
-<meta name="author" content="Sri Harsha Sunkavalli">
-<meta property="og:title" content="Sri Harsha Sunkavalli — Cloud & AI Solutions Specialist">
-<meta property="og:description" content="AWS Certified Cloud & AI professional. MS CS George Mason. Building scalable AI systems and cloud infrastructure.">
+<title>Harsha Sunkavalli | Software Engineer, Data & AI</title>
+<meta name="description" content="Harsha Sunkavalli, Software Engineer with a Data & AI focus. AWS Certified. MS CS, George Mason University. Open to Software Engineering, Data Science, AI/ML, and Cloud roles.">
+<meta name="keywords" content="Harsha Sunkavalli, Software Engineer, Data Scientist, AI Engineer, Cloud Engineer, AWS Certified, GMU, Python, Machine Learning">
+<meta name="author" content="Harsha Sunkavalli">
+<meta property="og:title" content="Harsha Sunkavalli | Software Engineer, Data & AI">
+<meta property="og:description" content="AWS Certified Software Engineer with a Data & AI focus. MS CS, George Mason University. Building production systems across data, AI, and cloud.">
 <meta property="og:url" content="https://futuretide.github.io/portfolio">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -275,9 +275,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   .resume-modal{height:95vh;border-radius:12px;}
   #back-to-top{bottom:1.25rem;right:1.25rem;width:38px;height:38px;}
 }
-@media(max-width:400px){
-  h1.hero-name{font-size:2rem;}
-
 /* ── MOBILE: Resume in nav + scroll fix ── */
 @media(max-width:768px){
   /* Show resume button directly in nav */
@@ -296,6 +293,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
     touch-action:manipulation;
   }
 }
+
+@media(max-width:400px){
+  h1.hero-name{font-size:2rem;}
 
 /* Custom cursor - desktop only */
 @media(hover:hover) and (pointer:fine){
@@ -324,6 +324,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   #custom-cursor,#custom-cursor-ring{display:none;}
   body{cursor:auto;}
 }
+/* ACCESSIBILITY: visible keyboard focus */
+a:focus-visible,button:focus-visible,.project-card:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
 </style>
 </head>
 <body>
@@ -336,10 +340,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 <div class="resume-modal-overlay" id="resumeModal">
   <div class="resume-modal">
     <div class="resume-modal-header">
-      <div class="resume-modal-title">📄 Harsha Sunkavalli — Resume</div>
+      <div class="resume-modal-title">📄 Harsha Sunkavalli's Resume</div>
       <div class="resume-modal-actions">
         <a href="https://drive.google.com/uc?export=download&id=1V7dRCmUMb9PSU0Zhj9_QviF8-sB1LuZT" class="resume-download-btn">⬇ Download PDF</a>
-        <button class="resume-modal-close" onclick="closeResume()">✕</button>
+        <button class="resume-modal-close" onclick="closeResume()" aria-label="Close resume">✕</button>
       </div>
     </div>
     <div class="resume-modal-body">
@@ -351,10 +355,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 <!-- PROJECT MODALS -->
 <div class="modal-overlay" id="modal1">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+    <button class="modal-close" onclick="closeModal('modal1')" aria-label="Close project details">✕</button>
     <div class="modal-tag">Project 01</div>
     <div class="modal-title">Google Meet Attendance Tracker</div>
-    <div class="modal-summary">A production-grade, zero-API attendance system built for a live nonprofit. Uses computer vision and browser automation to track participant presence across Google Meet main sessions and breakout rooms — no Google API required.</div>
+    <div class="modal-summary">Built for a nonprofit with no budget for the Google Meet API, so it doesn't use one. Computer vision and browser automation watch the screen directly, catching who's actually present across the main session and every breakout room.</div>
     <div class="modal-impact"><div class="modal-impact-title">Key Impact</div><ul><li>Eliminated 3+ hours of manual admin work per session</li><li>Tracked 50+ weekly participants across breakout rooms</li><li>Reduced administrative reporting overhead by 80%</li><li>Deployed live for Women of Connections Ministry</li></ul></div>
     <div class="modal-tags"><span class="modal-tag2">Python</span><span class="modal-tag2">OpenCV</span><span class="modal-tag2">Selenium</span><span class="modal-tag2">Tesseract OCR</span><span class="modal-tag2">Pandas</span><span class="modal-tag2">Multithreading</span></div>
     <a href="https://github.com/futuretide/Google-meet-attendance-tracker" target="_blank" class="modal-btn">View on GitHub →</a>
@@ -362,11 +366,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 </div>
 <div class="modal-overlay" id="modal2">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+    <button class="modal-close" onclick="closeModal('modal2')" aria-label="Close project details">✕</button>
     <div class="modal-tag">Project 02</div>
     <div class="modal-title">EV Charging Infrastructure Optimizer</div>
-    <div class="modal-summary">A geospatial decision support system for optimizing EV charging station placement across Washington D.C. using binary integer programming. Integrates U.S. Census data, road network analysis, and existing charger locations. Includes interactive Streamlit dashboard and full IEEE research paper.</div>
-    <div class="modal-impact"><div class="modal-impact-title">Key Impact</div><ul><li>72.3% tract coverage — up from 21.7% baseline</li><li>78.5% of D.C. population covered with just 50 chargers</li><li>Evaluated 1,000+ candidate sites with sensitivity analysis</li><li>Published as IEEE-format research paper at GMU</li></ul></div>
+    <div class="modal-summary">Where should Washington D.C. put its next EV chargers? This decision-support system runs binary integer programming over 1,000+ candidate sites, layering in Census data, road networks, and existing charger locations, with an interactive Streamlit dashboard and a full IEEE research paper behind the numbers.</div>
+    <div class="modal-impact"><div class="modal-impact-title">Key Impact</div><ul><li>72.3% tract coverage, up from 21.7% baseline</li><li>78.5% of D.C. population covered with just 50 chargers</li><li>Evaluated 1,000+ candidate sites with sensitivity analysis</li><li>Published as IEEE-format research paper at GMU</li></ul></div>
     <div class="modal-tags"><span class="modal-tag2">Pyomo</span><span class="modal-tag2">GeoPandas</span><span class="modal-tag2">Streamlit</span><span class="modal-tag2">CBC Solver</span><span class="modal-tag2">Folium</span><span class="modal-tag2">SciPy</span></div>
     <a href="https://github.com/futuretide/ev-charging-optimizer" target="_blank" class="modal-btn">View on GitHub →</a>
   </div>
@@ -387,7 +391,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
       <button class="nav-resume-btn" onclick="openResume()">📄 View Resume</button>
       <a href="#contact" class="nav-cta">Contact Me</a>
       <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -409,17 +413,17 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 <section id="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge"><span class="hero-badge-dot"></span>Open to Work — Fairfax, VA · Open to Relocate</div>
-      <h1 class="hero-name">Sri Harsha<br><span class="accent">Sunkavalli</span></h1>
-      <div class="hero-title">Cloud & AI Solutions Specialist</div>
-      <p class="hero-desc">Building scalable AI systems, edge computing infrastructure, and LLM pipelines. 3+ years delivering production solutions across manufacturing, research, and nonprofit sectors.</p>
+      <div class="hero-badge"><span class="hero-badge-dot"></span>Open to Work · Fairfax, VA · Open to Relocate</div>
+      <h1 class="hero-name">Harsha<br><span class="accent">Sunkavalli</span></h1>
+      <div class="hero-title">Software Engineer · Data & AI</div>
+      <p class="hero-desc">Built a computer vision script that watches a Google Meet screen instead of calling an API, an optimization model that decided where Washington D.C. should put its next EV chargers, and a data pipeline running on 20 Raspberry Pis inside a live tire factory. Open to Software Engineering, Data Science, AI/ML, and Cloud roles.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#contact" class="btn-secondary">Get In Touch</a>
         <a href="https://github.com/futuretide" target="_blank" class="btn-secondary">GitHub</a>
       </div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">3+</div><div class="hero-stat-label">Years Experience</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">1+</div><div class="hero-stat-label">Years Experience</div></div>
         <div class="hero-stat-divider"></div>
         <div class="hero-stat"><div class="hero-stat-num">3.83</div><div class="hero-stat-label">MS GPA @ GMU</div></div>
         <div class="hero-stat-divider"></div>
@@ -430,15 +434,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
     </div>
     <div>
       <div class="hero-card">
-        <div class="hero-card-name">Sri Harsha Sunkavalli</div>
-        <div class="hero-card-role">Cloud & AI Solutions Specialist</div>
+        <div class="hero-card-name">Harsha Sunkavalli</div>
+        <div class="hero-card-role">Software Engineer · Data & AI</div>
         <div class="hero-card-items">
           <div class="hero-card-item"><div class="hero-card-icon" style="background:#eff4ff;">🎓</div><div><div class="hero-card-item-text">George Mason University</div><div class="hero-card-item-sub">MS Computer Science · GPA 3.83</div></div></div>
           <div class="hero-card-item"><div class="hero-card-icon" style="background:#ecfdf5;">📍</div><div><div class="hero-card-item-text">Fairfax, VA</div><div class="hero-card-item-sub">Open to relocate anywhere in the US</div></div></div>
           <div class="hero-card-item"><div class="hero-card-icon" style="background:#fef3c7;">⚙️</div><div><div class="hero-card-item-text">AWS Cloud Practitioner</div><div class="hero-card-item-sub">Certified · January 2026</div></div></div>
-          <div class="hero-card-item"><div class="hero-card-icon" style="background:#fdf4ff;">🔬</div><div><div class="hero-card-item-text">Peer-Reviewed Researcher</div><div class="hero-card-item-sub">IoT & AI-driven embedded systems</div></div></div>
+          <div class="hero-card-item"><div class="hero-card-icon" style="background:#fdf4ff;">🤖</div><div><div class="hero-card-item-text">AWS AI Practitioner</div><div class="hero-card-item-sub">Certified</div></div></div>
         </div>
-        <div class="cert-badge"><div class="cert-badge-icon">🏗️</div><div><div class="cert-badge-text">AWS SAA-C03 In Progress</div><div class="cert-badge-sub">Solutions Architect Associate · Expected June 2026</div></div></div>
+        <div class="cert-badge"><div class="cert-badge-icon">🏗️</div><div><div class="cert-badge-text">AWS SAA-C03 In Progress</div><div class="cert-badge-sub">Solutions Architect Associate · Expected September 2026</div></div></div>
+        <div class="cert-badge" style="margin-top:0.6rem;"><div class="cert-badge-icon">🔷</div><div><div class="cert-badge-text">Azure Administrator Associate (AZ-104) In Progress</div><div class="cert-badge-sub">Exam scheduled · October 2026</div></div></div>
       </div>
     </div>
   </div>
@@ -451,12 +456,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
     <h2 class="section-title">Background & Mission</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a Cloud and AI professional with a track record of turning complex technical challenges into production systems that actually work. From deploying edge computing infrastructure across a 10,000-unit-per-month manufacturing line to building zero-API computer vision tools for nonprofits, I focus on solutions that deliver measurable value.</p>
-        <p>My MS in Computer Science from George Mason University (GPA 3.83) gave me a strong research foundation — I co-authored an IEEE paper on geospatial optimization and served as a Graduate Research Assistant on Decision Guidance Systems. I bring both the academic rigor and the engineering pragmatism that SA and AI/Cloud roles demand.</p>
-        <p>I'm actively targeting Solutions Architect, AI/Cloud Engineer, and Forward Deployed Engineer roles where I can work directly with customers to solve real infrastructure and AI adoption challenges.</p>
+        <p>I like problems where the constraint is real: no API access, a fixed budget, a factory floor that can't stop running to accommodate a bug. At Women of Connections Ministry, I replaced a manual headcount that ate 3+ hours per session with a computer vision script that watches the screen instead of asking Google for data. At CEAT Tyres, I wired 20+ Raspberry Pis into a live manufacturing line and cut root-cause investigation time by 30%.</p>
+        <p>My MS in Computer Science from George Mason University (GPA 3.83) sharpened the research side of that instinct. An IEEE-format paper I co-authored used binary integer programming to decide where D.C. should place its next EV chargers, pushing tract coverage from 21.7% to 72.3%, not by guessing, but by solving for it.</p>
+        <p>I'm open to Software Engineering, Data Science, AI/ML, and Cloud roles. I care less about the job title and more about whether the problem is real and the constraints are interesting.</p>
       </div>
       <div class="about-cards">
-        <div class="about-card"><div class="about-card-num">3+</div><div class="about-card-label">Years professional experience</div></div>
+        <div class="about-card"><div class="about-card-num">1+</div><div class="about-card-label">Years professional experience</div></div>
         <div class="about-card"><div class="about-card-num">3.83</div><div class="about-card-label">MS GPA at George Mason</div></div>
         <div class="about-card"><div class="about-card-num">5+</div><div class="about-card-label">AI pipelines built & deployed</div></div>
         <div class="about-card"><div class="about-card-num">80%</div><div class="about-card-label">Reporting overhead cut</div></div>
@@ -470,7 +475,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   <div class="section-inner">
     <div class="section-tag">Skills</div>
     <h2 class="section-title">Technical Expertise</h2>
-    <p class="section-subtitle">Full-stack cloud and AI capabilities from infrastructure architecture to production deployment.</p>
+    <p class="section-subtitle">The tools behind the projects below, used to ship real systems, not just tutorials.</p>
     <div class="skills-grid">
       <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#eff4ff;">☁️</div><div><div class="skill-title">Cloud & AWS</div><div class="skill-level" style="background:#eff4ff;color:#0f62fe;">Advanced</div></div></div><div class="skill-tools"><span class="skill-tool">EC2</span><span class="skill-tool">S3</span><span class="skill-tool">Lambda</span><span class="skill-tool">VPC / IAM</span><span class="skill-tool">API Gateway</span><span class="skill-tool">CloudWatch</span><span class="skill-tool">CodePipeline</span></div></div>
       <div class="skill-card"><div class="skill-card-header"><div class="skill-icon" style="background:#fdf4ff;">🤖</div><div><div class="skill-title">AI & LLMs</div><div class="skill-level" style="background:#fdf4ff;color:#6f42c1;">Expert</div></div></div><div class="skill-tools"><span class="skill-tool">OpenAI API</span><span class="skill-tool">RAG Pipelines</span><span class="skill-tool">Prompt Eng.</span><span class="skill-tool">LangChain</span><span class="skill-tool">Vector DBs</span></div></div>
@@ -486,45 +491,53 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 <section id="experience" class="section section-alt fade-in">
   <div class="section-inner">
     <div class="section-tag">Experience</div>
-    <h2 class="section-title">Work History</h2>
+    <h2 class="section-title">Experience & Education</h2>
     <div class="exp-timeline">
       <div class="exp-item">
         <div class="exp-dot">💬</div>
         <div class="exp-content">
-          <div class="exp-meta"><div class="exp-role">Data Analyst</div><div class="exp-date">Mar 2026 – May 2026</div></div>
+          <div class="exp-meta"><div class="exp-role">Data Analyst</div><div class="exp-date">Mar 2026 – Present</div></div>
           <div class="exp-company">Women of Connections Ministry · Remote · Nonprofit</div>
           <div class="exp-bullets">
-            <div class="exp-bullet">Architected a <strong>zero-budget computer vision pipeline</strong> using OpenCV HSV masking and Selenium automation to track Google Meet attendance — no API required.</div>
+            <div class="exp-bullet">Architected a <strong>zero-budget computer vision pipeline</strong> using OpenCV HSV masking and Selenium automation to track Google Meet attendance. No API required.</div>
             <div class="exp-bullet">Replaced fully manual headcount for <strong>50+ weekly participants</strong>, saving 3+ hours of admin work per session and cutting reporting overhead by 80%.</div>
-            <div class="exp-bullet">Built <strong>multithreaded Python architecture</strong> handling dynamic layout shifts — a production-grade system deployed live for a real organization.</div>
+            <div class="exp-bullet">Built <strong>multithreaded Python architecture</strong> handling dynamic layout shifts, a production-grade system deployed live for a real organization.</div>
             <div class="exp-bullet">Designed automated CSV reporting enabling <strong>zero manual intervention</strong> with timestamped per-room records.</div>
           </div>
         </div>
       </div>
       <div class="exp-item">
-        <div class="exp-dot">🔬</div>
+        <div class="exp-dot">🎓</div>
         <div class="exp-content">
-          <div class="exp-meta"><div class="exp-role">Graduate Research Assistant</div><div class="exp-date">Jan 2025 – Dec 2025</div></div>
-          <div class="exp-company">George Mason University · Fairfax, VA · CS787 Decision Guidance Systems</div>
+          <div class="exp-meta"><div class="exp-role">MS in Computer Science</div><div class="exp-date">Jan 2024 – Dec 2025</div></div>
+          <div class="exp-company">George Mason University · Fairfax, VA · GPA 3.83</div>
           <div class="exp-bullets">
-            <div class="exp-bullet">Developed <strong>AI-assisted decision frameworks</strong> combining ML models and optimization modeling for multi-variable decision-making across 3+ problem domains.</div>
-            <div class="exp-bullet">Built and validated <strong>Python ML pipelines</strong> using Scikit-learn, Pyomo, and NumPy over a 12-month research cycle.</div>
-            <div class="exp-bullet">Co-authored a <strong>full IEEE-format research paper</strong> on geospatial EV charging optimization, achieving 72.3% tract coverage across Washington D.C.</div>
-            <div class="exp-bullet">Presented findings demonstrating measurable <strong>accuracy improvements over baseline models</strong> in multi-objective optimization scenarios.</div>
+            <div class="exp-bullet">Co-authored an <strong>IEEE-format research paper</strong> applying binary integer programming to EV charging station placement, achieving 72.3% tract coverage across Washington D.C., up from a 21.7% baseline.</div>
+            <div class="exp-bullet">Built and validated <strong>Python ML pipelines</strong> using Scikit-learn, Pyomo, and NumPy across coursework in decision guidance systems.</div>
+            <div class="exp-bullet">Coursework and projects spanning <strong>machine learning, optimization modeling, and geospatial analysis.</strong></div>
           </div>
         </div>
       </div>
       <div class="exp-item">
         <div class="exp-dot">🏭</div>
         <div class="exp-content">
-          <div class="exp-meta"><div class="exp-role">Data Scientist</div><div class="exp-date">Jun 2021 – Jan 2024</div></div>
+          <div class="exp-meta"><div class="exp-role">Data Scientist</div><div class="exp-date">Jun 2023 – Nov 2023</div></div>
           <div class="exp-company">CEAT Tyres · Vadodara, India · Manufacturing · 10,000+ units/month</div>
           <div class="exp-bullets">
-            <div class="exp-bullet">Promoted intern → full-time Data Scientist — <strong>one of fewer than 5 interns converted</strong> in that cohort based on technical performance.</div>
             <div class="exp-bullet">Deployed <strong>edge computing infrastructure using 20+ Raspberry Pi devices</strong> for real-time data capture across a large-scale manufacturing line.</div>
             <div class="exp-bullet">Architected an <strong>end-to-end traceability pipeline across 15+ production stages</strong>, cutting root cause investigation time by 30%.</div>
             <div class="exp-bullet">Built <strong>Power BI dashboards processing 50,000+ inspection images</strong> from 20+ camera checkpoints across 3 product lines.</div>
             <div class="exp-bullet">Automated quality inspection workflows, <strong>reducing manual review cycles by 40%</strong> across production shifts.</div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot">🎓</div>
+        <div class="exp-content">
+          <div class="exp-meta"><div class="exp-role">B.Tech, Artificial Intelligence Engineering</div><div class="exp-date">Jun 2019 – Jun 2023</div></div>
+          <div class="exp-company">Amrita Vishwa Vidyapeetham (Amrita University)</div>
+          <div class="exp-bullets">
+            <div class="exp-bullet">Foundational coursework in <strong>AI, machine learning, and software engineering</strong>, the base the rest of this page is built on.</div>
           </div>
         </div>
       </div>
@@ -537,10 +550,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   <div class="section-inner">
     <div class="section-tag">Projects</div>
     <h2 class="section-title">Featured Work</h2>
-    <p class="section-subtitle">Production systems built to solve real problems — click any card to see the full story.</p>
+    <p class="section-subtitle">Two systems built under real constraints: no budget, no API, a live production line. Click a card for the numbers.</p>
     <div class="projects-grid">
-      <article class="project-card" onclick="openModal('modal1')"><div class="project-num">Project 01</div><div class="project-title">Google Meet Attendance Tracker</div><div class="project-desc">Production-grade zero-API attendance system using computer vision. Tracks 50+ participants across breakout rooms via multithreaded architecture. Saved 3+ hours of manual admin per session for a live nonprofit.</div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">Selenium</span><span class="project-tag">Tesseract OCR</span><span class="project-tag">Pandas</span></div><div class="project-hint">Click to explore →</div></article>
-      <article class="project-card" onclick="openModal('modal2')"><div class="project-num">Project 02</div><div class="project-title">EV Charging Infrastructure Optimizer</div><div class="project-desc">Geospatial optimization using binary integer programming. 1,000+ candidate sites across D.C. — 72.3% tract coverage, 78.5% population coverage. Interactive Streamlit dashboard + IEEE research paper.</div><div class="project-tags"><span class="project-tag">Pyomo</span><span class="project-tag">GeoPandas</span><span class="project-tag">Streamlit</span><span class="project-tag">CBC Solver</span><span class="project-tag">Folium</span></div><div class="project-hint">Click to explore →</div></article>
+      <article class="project-card" onclick="openModal('modal1')" tabindex="0"><div class="project-num">Project 01</div><div class="project-title">Google Meet Attendance Tracker</div><div class="project-desc">No budget for the Google Meet API, so this one doesn't use it. OpenCV watches the screen directly. Tracks 50+ people across breakout rooms and turned an hours-long manual headcount into a zero-touch report.</div><div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">OpenCV</span><span class="project-tag">Selenium</span><span class="project-tag">Tesseract OCR</span><span class="project-tag">Pandas</span></div><div class="project-hint">Click to explore →</div></article>
+      <article class="project-card" onclick="openModal('modal2')" tabindex="0"><div class="project-num">Project 02</div><div class="project-title">EV Charging Infrastructure Optimizer</div><div class="project-desc">Where should Washington D.C. put its next 50 EV chargers? Binary integer programming over 1,000+ candidate sites pushed tract coverage from 21.7% to 72.3%, backed by a Streamlit dashboard and a full IEEE paper.</div><div class="project-tags"><span class="project-tag">Pyomo</span><span class="project-tag">GeoPandas</span><span class="project-tag">Streamlit</span><span class="project-tag">CBC Solver</span><span class="project-tag">Folium</span></div><div class="project-hint">Click to explore →</div></article>
     </div>
   </div>
 </section>
@@ -550,7 +563,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   <div class="section-inner">
     <div class="section-tag">Research</div>
     <h2 class="section-title">Publications</h2>
-    <div class="pub-card"><div class="pub-badge">✓ Peer-Reviewed · 2021</div><div class="pub-title">Design of IoT-Enabled Farmer-Centric Multi-Crop Irrigation Support System</div><div class="pub-meta">ResearchGate · SSIC 2021 International Conference</div><div class="pub-desc">Research on IoT sensor networks, edge decision logic, and AI-driven automation for real-time multi-crop irrigation management. End-to-end system design from hardware sensor integration to cloud-connected control logic.</div></div>
+    <div class="pub-card"><div class="pub-badge">✓ Peer-Reviewed · 2021</div><div class="pub-title">Design of IoT-Enabled Farmer-Centric Multi-Crop Irrigation Support System</div><div class="pub-meta">ResearchGate · SSIC 2021 International Conference</div><div class="pub-desc">How do you get real-time irrigation decisions out of a field sensor network with no dedicated ops team? This paper works through the full stack for a multi-crop system: sensor integration, edge decision logic, and cloud-connected control, built for real farmers, not a lab bench.</div></div>
   </div>
 </section>
 
@@ -559,21 +572,21 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
   <div class="section-inner">
     <div class="section-tag">Contact</div>
     <h2 class="section-title">Let's Connect</h2>
-    <p class="section-subtitle">Actively seeking Solutions Architect, AI/Cloud Engineer, and Forward Deployed Engineer roles.</p>
+    <p class="section-subtitle">Actively seeking Software Engineering, Data Science, AI/ML, and Cloud roles.</p>
     <div class="contact-grid">
       <div class="contact-info">
-        <p>Currently based in Fairfax, VA and open to relocate anywhere in the US. I respond to all messages within 24 hours and am available for calls, interviews, or technical discussions.</p>
-        <p>If you're looking for someone who can bridge the gap between complex AI/cloud infrastructure and real business value — let's talk.</p>
+        <p>Based in Fairfax, VA, open to relocating anywhere in the US. I reply within 24 hours and I'm glad to jump on a call, an interview, or just a technical conversation.</p>
+        <p>If you've got a data or systems problem that doesn't have a clean off-the-shelf answer: no API, a tight budget, odd constraints. That's usually where I do my best work.</p>
         <div class="contact-status">
-          <div class="contact-status-row"><div class="contact-dot"></div>Open to Work — actively interviewing</div>
+          <div class="contact-status-row"><div class="contact-dot"></div>Open to Work · Actively interviewing</div>
           <div class="contact-status-row"><div class="contact-dot"></div>Location: Fairfax, VA · Open to Relocate</div>
           <div class="contact-status-row"><div class="contact-dot"></div>Response time: under 24 hours</div>
         </div>
       </div>
       <div class="contact-links">
-        <a href="mailto:smasriharsha@gmail.com" class="contact-link"><div class="contact-link-icon">@</div><div><div>smasriharsha@gmail.com</div><div class="contact-link-label">Email — preferred</div></div></a>
+        <a href="mailto:smasriharsha@gmail.com" class="contact-link"><div class="contact-link-icon">@</div><div><div>smasriharsha@gmail.com</div><div class="contact-link-label">Email (preferred)</div></div></a>
         <a href="https://www.linkedin.com/in/harsha-sunkavalli" target="_blank" class="contact-link"><div class="contact-link-icon">in</div><div><div>linkedin.com/in/harsha-sunkavalli</div><div class="contact-link-label">LinkedIn</div></div></a>
-        <a href="https://github.com/futuretide" target="_blank" class="contact-link"><div class="contact-link-icon" style="font-family:monospace;font-size:0.8rem;">&lt;/&gt;</div><div><div>github.com/futuretide</div><div class="contact-link-label">GitHub — view my code</div></div></a>
+        <a href="https://github.com/futuretide" target="_blank" class="contact-link"><div class="contact-link-icon" style="font-family:monospace;font-size:0.8rem;">&lt;/&gt;</div><div><div>github.com/futuretide</div><div class="contact-link-label">GitHub · View my code</div></div></a>
       </div>
     </div>
   </div>
@@ -581,7 +594,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-name">Sri Harsha Sunkavalli</div>
+    <div class="footer-name">Harsha Sunkavalli</div>
     <div class="footer-copy">© 2026 · Fairfax, VA · Open to Work</div>
     <div class="footer-links">
       <a href="https://github.com/futuretide" target="_blank">GitHub</a>
@@ -602,6 +615,9 @@ function openModal(id){document.getElementById(id).classList.add('active');}
 function closeModal(id){document.getElementById(id).classList.remove('active');}
 document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('active');});});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeResume();document.querySelectorAll('.modal-overlay.active').forEach(m=>m.classList.remove('active'));}});
+document.querySelectorAll('.project-card[tabindex]').forEach(card=>{
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click();}});
+});
 
 // ── HAMBURGER ─────────────────────────────────────────
 const hamburger=document.getElementById('hamburger');
