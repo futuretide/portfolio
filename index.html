@@ -236,7 +236,7 @@ body.dark .contact-status{border-color:#065f46;}
 .form-submit-btn{background:var(--accent);color:#fff;border:none;padding:0.75rem 1.75rem;border-radius:8px;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.15s;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:0.5rem;}
 .form-submit-btn:hover{opacity:0.9;transform:translateY(-1px);}
 .form-submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
-.form-status{margin-top:1rem;font-size:0.85rem;font-weight:500;display:none;padding:0.65rem 0.9rem;border-radius:8px;}
+.form-status{margin-top:1rem;font-size:0.85rem;font-weight:500;display:none;padding:0.65rem 0.9rem;border-radius:8px;opacity:1;transition:opacity 0.4s ease;}
 .form-status.success{display:block;background:var(--green-light);color:var(--green);}
 .form-status.error{display:block;background:#fef2f2;color:#dc2626;}
 body.dark .form-status.error{background:#2a1414;color:#f87171;}
@@ -599,6 +599,7 @@ a:focus-visible,button:focus-visible,.project-card:focus-visible{
         </div>
       </div>
       <div class="contact-links">
+        <a href="https://calendly.com/sriharsha-sunkavalli" target="_blank" class="contact-link"><div class="contact-link-icon" style="background:var(--green-light);color:var(--green);">📅</div><div><div>Schedule a quick meeting</div><div class="contact-link-label">Calendly · Pick a time that works for you</div></div></a>
         <a href="mailto:smasriharsha@gmail.com" class="contact-link"><div class="contact-link-icon">@</div><div><div>smasriharsha@gmail.com</div><div class="contact-link-label">Email (preferred)</div></div></a>
         <a href="https://www.linkedin.com/in/harsha-sunkavalli" target="_blank" class="contact-link"><div class="contact-link-icon">in</div><div><div>linkedin.com/in/harsha-sunkavalli</div><div class="contact-link-label">LinkedIn</div></div></a>
         <a href="https://github.com/futuretide" target="_blank" class="contact-link"><div class="contact-link-icon" style="font-family:monospace;font-size:0.8rem;">&lt;/&gt;</div><div><div>github.com/futuretide</div><div class="contact-link-label">GitHub · View my code</div></div></a>
@@ -707,6 +708,17 @@ window.addEventListener('scroll',()=>{
 
 // ── CONTACT FORM (Web3Forms) ──────────────────────────
 const contactForm = document.getElementById('contactForm');
+let cfStatusTimeout = null;
+function showFormStatus(status, type, text) {
+  clearTimeout(cfStatusTimeout);
+  status.style.opacity = '1';
+  status.className = 'form-status ' + type;
+  status.textContent = text;
+  cfStatusTimeout = setTimeout(() => {
+    status.style.opacity = '0';
+    setTimeout(() => { status.className = 'form-status'; status.textContent = ''; }, 400);
+  }, 5000);
+}
 if (contactForm) {
   contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -715,6 +727,7 @@ if (contactForm) {
     const originalBtnText = btn.textContent;
     btn.disabled = true;
     btn.textContent = 'Sending...';
+    clearTimeout(cfStatusTimeout);
     status.className = 'form-status';
     status.textContent = '';
 
@@ -729,16 +742,13 @@ if (contactForm) {
       });
       const result = await res.json();
       if (result.success) {
-        status.className = 'form-status success';
-        status.textContent = "Message sent, thanks! I'll get back to you within 24 hours.";
+        showFormStatus(status, 'success', "Message sent, thanks! I'll get back to you within 24 hours.");
         contactForm.reset();
       } else {
-        status.className = 'form-status error';
-        status.textContent = 'Something went wrong. Please try again or email me directly.';
+        showFormStatus(status, 'error', 'Something went wrong. Please try again or email me directly.');
       }
     } catch (err) {
-      status.className = 'form-status error';
-      status.textContent = 'Network error. Please try again or email me directly.';
+      showFormStatus(status, 'error', 'Network error. Please try again or email me directly.');
     } finally {
       btn.disabled = false;
       btn.textContent = originalBtnText;
