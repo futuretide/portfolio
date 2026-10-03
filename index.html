@@ -261,7 +261,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
 
 /* MOBILE */
 @media(max-width:768px){
-  html,body{touch-action:pan-y!important;}
   .nav-inner{padding:0 1rem;height:56px;}
   .nav-links{display:none;}
   .nav-resume-btn{display:none;}
@@ -302,11 +301,25 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:2rem;}
     opacity:1!important;transform:none!important;transition:none!important;
   }
   /* SCROLL FIX: allow vertical pan everywhere */
-  html,body{touch-action:pan-y;overflow-x:hidden;}
+  html,body{overflow-x:hidden;}
   /* Only tappable elements get tap behavior */
   a,button,.project-card,.modal-btn,.contact-link,.about-card,.sc{
     touch-action:manipulation;
   }
+}
+
+/* TOUCH DEVICES: no sticky hover movement (it shifts elements under the finger and eats taps),
+   no smooth-scroll/blur jank, no tap flash */
+@media(hover:none),(pointer:coarse){
+  html{scroll-behavior:auto;-webkit-text-size-adjust:100%;}
+  a,button,.project-card,[onclick]{-webkit-tap-highlight-color:transparent;}
+  .nav-resume-btn:hover,.nav-cta:hover,.btn-primary:hover,.btn-secondary:hover,
+  .skill-card:hover,.project-card:hover,.form-submit-btn:hover,.contact-link:hover,
+  #back-to-top:hover,#theme-toggle:hover{transform:none!important;}
+  nav,.modal-overlay,.resume-modal-overlay{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+  nav{background:var(--bg);}
+  #progress-bar{transition:none;}
+  .modal{overscroll-behavior:contain;-webkit-overflow-scrolling:touch;}
 }
 
 @media(max-width:400px){
@@ -680,14 +693,22 @@ const progressBar=document.getElementById('progress-bar');
 const backToTop=document.getElementById('back-to-top');
 const sections=document.querySelectorAll('section[id]');
 const navLinks=document.querySelectorAll('.nav-links a');
+const navEl=document.querySelector('nav');
 
-window.addEventListener('scroll',()=>{
-  const scrolled=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+let scrollTicking=false;
+function onScrollFrame(){
+  scrollTicking=false;
+  const y=window.scrollY;
+  const scrolled=(y/Math.max(1,document.documentElement.scrollHeight-window.innerHeight))*100;
   progressBar.style.width=scrolled+'%';
-  backToTop.classList.toggle('visible',window.scrollY>400);
+  backToTop.classList.toggle('visible',y>400);
   let current='';
-  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.id;});
+  sections.forEach(s=>{if(y>=s.offsetTop-100)current=s.id;});
   navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current);});
+  navEl.style.boxShadow=y>10?'0 1px 12px rgba(0,0,0,0.08)':'none';
+}
+window.addEventListener('scroll',()=>{
+  if(!scrollTicking){scrollTicking=true;requestAnimationFrame(onScrollFrame);}
 },{passive:true});
 
 backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
@@ -701,11 +722,6 @@ if('IntersectionObserver' in window && window.innerWidth > 768){
   },{threshold:0.08});
   fadeEls.forEach(el=>obs.observe(el));
 }
-
-// ── NAV SHADOW ON SCROLL ──────────────────────────────
-window.addEventListener('scroll',()=>{
-  document.querySelector('nav').style.boxShadow=window.scrollY>10?'0 1px 12px rgba(0,0,0,0.08)':'none';
-},{passive:true});
 
 // ── CONTACT FORM (Web3Forms) ──────────────────────────
 const contactForm = document.getElementById('contactForm');
